@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Curvas de Bezier</title>
+  <meta author = "LZSD">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <style>
+    #canvas{
+    background: #ffffff;
+    border: 2px;
+    border-style: solid;
+    border-color: #008dd5;
+    margin: 24px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="nav justify-content-center">
+      <label class="nav-link active">
+          <input id="controlPoints" type="checkbox" checked autocomplete="off"> Pontos de Controle
+      </label>
+      <label class="nav-link active">
+          <input id="controlPoli" type="checkbox" checked autocomplete="off"> Poligonais de Controle
+      </label>
+      <label class="nav-link active">
+          <input id="curve" type="checkbox" checked autocomplete="off"> Curvas
+      </label>
+  </nav>
+  <section class="jumbotron text-center">
+    <div class="container">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          aperte <strong>barra do espaço</strong> para finalizar a curva
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+
+      <div class = "row justify-content-center">
+        <span class="badge badge-primary">
+          Mouse X <span class="badge badge-light"><i id="mouse-x"></i></span>
+        </span>
+        <span class="badge badge-primary">
+            Mouse Y <span class="badge badge-light"><i id="mouse-y"></i></span>
+        </span>
+      </div>
+      <div class = "row justify-content-center">
+        <label>
+          Avaliações
+          <input type="number" class = "custom-select" id="input-evaluations-number" value="50">
+        </label>        
+      </div>
+      <div id="canvas-container">
+        <canvas id="canvas">
+        </canvas>
+      </div>
+    </div>
+    <div class="container justify-content-center">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          aperte <strong>barra do espaço</strong> para finalizar a curva
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          para <strong>apagar ponto</strong>, <strong>mover ponto</strong> ou <strong>apagar curva</strong> clique nos pontos de controle
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <div class="btn-group mr-2" role="group" aria-label="Primeiro grupo">
+        <button type="button"  class="btn btn-success" id="addCurve">
+          Iniciar curva
+        </button>
+        <button type="button"  class="btn btn-danger" id="cleanCanvas">
+          Limpar tudo
+        </button>
+      </div>
+      <div class="btn-group" role="group" aria-label="segundo grupo">
+        <button type="button" class="btn btn-primary" id="movePoint">
+          Mover Ponto
+        </button>
+      
+        <button type="button" class="btn btn-primary" id="deletePoint">
+          Apagar Ponto
+        </button>
+    
+        <button type="button" class="btn btn-primary" id="deleteCurve">
+          Apagar Curva
+        </button>
+   
+      </div>
+    </div>
+    
+  </section>
+  <script type="text/javascript" src=".\script.js"></script>  
+</body>
+</html>
